@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  before_action :ensure_user, only: [:edit, :update]
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -42,5 +44,12 @@ class UsersController < ApplicationController
       :first_name,
       :last_name
     )
+  end
+
+  def ensure_user
+    user = User.find(params[:id])
+    unless current_user == user
+      redirect_to user_path(user)
+    end
   end
 end

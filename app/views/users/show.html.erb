@@ -1,4 +1,6 @@
-<h1><%= current_user.username %></h1>
-
+<% if current_user == @user %>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+<% end %>
+<div>Username: <%= current_user.username %></div>
 <div>First Name: <%= current_user.first_name %></div>
 <div>Last Name: <%= current_user.last_name %></div>

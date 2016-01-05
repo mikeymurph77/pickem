@@ -7,15 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% if signed_in? %>
+  <h1><%= link_to "Pickem", root_path %></h1>
+  <% if signed_in? %>
     <div class="user_nav" style="float: right">
-      <span><%= link_to current_user.username, edit_user_path(current_user) %></span>
+      <span><%= link_to current_user.username, user_path(current_user) %></span>
       <span style="float: right"><%= button_to "Sign out", session_path, method: :delete %></span>
     </div>
   <% end %>
 
-<%= yield %>
-
+  <%= yield %>
 </body>
 </html>
