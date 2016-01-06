@@ -49,8 +49,7 @@ class UsersController < ApplicationController
   end
 
   def ensure_user
-    unless current_user == @user
-      redirect_to user_path(@user)
-    end
+    return false if current_user == @user
+    redirect_to user_path(@user)
   end
 end

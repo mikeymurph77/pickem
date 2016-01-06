@@ -25,4 +25,3 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:email, :password, :username)
   end
 end
-
