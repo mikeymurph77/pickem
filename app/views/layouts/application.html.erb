@@ -14,7 +14,7 @@
       <span style="float: right"><%= button_to "Sign out", session_path, method: :delete %></span>
     </div>
   <% end %>
-
+  <%= render "flash_msg" %>
   <%= yield %>
 </body>
 </html>
