@@ -13,7 +13,7 @@ gem 'monban'
 gem 'monban-generators'
 
 group :development, :test do
-  gem "rspec-rails" , "~> 3.1.0"
+  gem "rspec-rails", "~> 3.1.0"
   gem "factory_girl_rails"
   gem 'byebug'
   gem 'web-console', '~> 2.0'
