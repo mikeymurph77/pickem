@@ -13,23 +13,11 @@ describe User do
     expect(user).to be_valid
   end
 
-  it "is invalid without a username" do
-    user = User.new(username: nil)
-    user.valid?
-    expect(user.errors[:username]).to include("can't be blank")
-  end
+  it { is_expected.to validate_presence_of(:username) }
 
-  it "is invalid without an email address" do
-    user = User.new(email: nil)
-    user.valid?
-    expect(user.errors[:email]).to include("can't be blank")
-  end
+  it { is_expected.to validate_presence_of(:email) }
 
-  it "is invalid without a password" do
-    user = User.new(password_digest: nil)
-    user.valid?
-    expect(user.errors[:password_digest]).to include("can't be blank")
-  end
+  it { is_expected.to validate_presence_of(:password_digest) }
 
   it "is invalid with a duplicate email address" do
     User.create(
