@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
 
   def name
-    [first_name, last_name].join(' ')
+    "#{first_name} #{last_name}"
   end
 end
