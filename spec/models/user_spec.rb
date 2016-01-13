@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe User do
+  subject { User.new(email: 'foo@bar.com', password_digest: 'password', username: 'foo') }
+
   it "is valid with a username, first_name, last_name, password and email" do
     user = User.new(
       username: "Bob77",
@@ -13,39 +15,12 @@ describe User do
     expect(user).to be_valid
   end
 
-  it "is invalid without a username" do
-    user = User.new(username: nil)
-    user.valid?
-    expect(user.errors[:username]).to include("can't be blank")
-  end
-
-  it "is invalid without an email address" do
-    user = User.new(email: nil)
-    user.valid?
-    expect(user.errors[:email]).to include("can't be blank")
-  end
-
-  it "is invalid without a password" do
-    user = User.new(password_digest: nil)
-    user.valid?
-    expect(user.errors[:password_digest]).to include("can't be blank")
-  end
-
-  it "is invalid with a duplicate email address" do
-    User.create(
-      username: "Bob77",
-      password_digest: "abcd1234",
-      email: "bob77@testemail.com"
-    )
-
-    user = User.new(
-      password_digest: "onetwothree",
-      email: "bob77@testemail.com"
-    )
-
-    user.valid?
-    expect(user.errors[:email]).to include("has already been taken")
-  end
+  it { should validate_presence_of(:username) }
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:password_digest) }
+  it { should validate_uniqueness_of(:email) }
+  it { should validate_uniqueness_of(:username) }
+  it { should validate_uniqueness_of(:email) }
 
   it "returns a user's full name as a string" do
     user = User.new(
