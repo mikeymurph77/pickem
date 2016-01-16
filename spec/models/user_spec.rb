@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe User do
+  subject { User.new(email: 'foo@bar.com', password_digest: 'password', username: 'foo') }
+
   it "is valid with a username, first_name, last_name, password and email" do
     user = User.new(
       username: "Bob77",
@@ -16,8 +18,6 @@ describe User do
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password_digest) }
-
-  subject { User.new(email: 'foo@bar.com', password_digest: 'password', username: 'foo') }
   it { should validate_uniqueness_of(:email) }
   it { should validate_uniqueness_of(:username) }
   it { should validate_uniqueness_of(:email) }
