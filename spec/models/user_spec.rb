@@ -18,4 +18,8 @@ describe User do
 
     expect(user.name).to eq 'Bob Willson'
   end
+
+  it "has a valid factory" do
+    expect(build(:user)).to be_valid
+  end
 end
