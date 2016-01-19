@@ -6,12 +6,4 @@ FactoryGirl.define do
     username { Faker::Internet.user_name }
     password_digest { Faker::Internet.password }
   end
-
-  # factory :user do
-  #   first_name "Mike"
-  #   last_name "Murphy"
-  #   sequence(:email) { |n| "mikemurphy#{n}@example.com" }
-  #   sequence(:username) { |n| "mikemurphy#{n}" }
-  #   sequence(:password_digest) { |n| "mike123#{n}" }
-  # end
 end
