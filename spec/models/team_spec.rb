@@ -8,6 +8,8 @@ describe Team do
   it { should validate_uniqueness_of(:name) }
 
   it "returns a team's full name as a string" do
-    expect(build(:team).city_and_name).to eq 'New England Patriots'
+    team = build(:team, name: 'Patriots', city: 'New England')
+
+    expect(team.city_and_name).to eq 'New England Patriots'
   end
 end
