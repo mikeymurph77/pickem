@@ -1,8 +1,8 @@
 class Team < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
-  validates :city, presence: true
+  validates :location, presence: true
 
   def city_and_name
-    "#{city} #{name}"
+    "#{location} #{name}"
   end
 end
