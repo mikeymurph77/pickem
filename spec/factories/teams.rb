@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :team do
     sequence(:name) { |n| "Patriots#{n}" }
-    city "New England"
+    location "New England"
   end
 end
