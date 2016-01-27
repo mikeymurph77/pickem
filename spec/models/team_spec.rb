@@ -17,6 +17,6 @@ describe Team do
   it "returns a team's full name as a string" do
     team = build(:team, name: 'Patriots', location: 'New England')
 
-    expect(team.city_and_name).to eq 'New England Patriots'
+    expect(team.location_and_name).to eq 'New England Patriots'
   end
 end
