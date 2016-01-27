@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120011152) do
+ActiveRecord::Schema.define(version: 20160127035545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "seasons", force: :cascade do |t|
+    t.date "start_date", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",       null: false
@@ -37,5 +41,9 @@ ActiveRecord::Schema.define(version: 20160120011152) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "weeks", force: :cascade do |t|
+    t.date "start_date", null: false
+  end
 
 end
