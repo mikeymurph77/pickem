@@ -5,5 +5,4 @@ class Game < ActiveRecord::Base
   validates :start_time, presence: true
 
   belongs_to :week
-  has_many :teams
 end
