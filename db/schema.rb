@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160127035545) do
   enable_extension "plpgsql"
 
   create_table "seasons", force: :cascade do |t|
-    t.date "start_date", null: false
+    t.datetime "start_date", null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160127035545) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "weeks", force: :cascade do |t|
-    t.date "start_date", null: false
+    t.datetime "start_date", null: false
   end
 
 end
