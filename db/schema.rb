@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160127193752) do
     t.datetime "start_date", null: false
   end
 
+  add_index "seasons", ["start_date"], name: "index_seasons_on_start_date", unique: true, using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "location",   null: false
@@ -58,5 +60,7 @@ ActiveRecord::Schema.define(version: 20160127193752) do
   create_table "weeks", force: :cascade do |t|
     t.datetime "start_date", null: false
   end
+
+  add_index "weeks", ["start_date"], name: "index_weeks_on_start_date", unique: true, using: :btree
 
 end
