@@ -14,9 +14,11 @@ describe Team do
     it { should have_many(:away_teams) }
   end
 
-  it "returns a team's full name as a string" do
-    team = build(:team, name: 'Patriots', location: 'New England')
+  describe "Unit" do
+    it "returns a team's full name as a string" do
+      team = build(:team, name: 'Patriots', location: 'New England')
 
-    expect(team.location_and_name).to eq 'New England Patriots'
+      expect(team.location_and_name).to eq 'New England Patriots'
+    end
   end
 end
