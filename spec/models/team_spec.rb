@@ -9,6 +9,11 @@ describe Team do
     it { should validate_uniqueness_of(:name) }
   end
 
+  describe 'Associations'  do
+    it { should have_many(:home_teams) }
+    it { should have_many(:away_teams) }
+  end
+
   it "returns a team's full name as a string" do
     team = build(:team, name: 'Patriots', location: 'New England')
 
