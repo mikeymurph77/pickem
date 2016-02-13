@@ -10,5 +10,6 @@ describe Game do
 
   describe 'Associations' do |variable|
     it { should belong_to(:week) }
+    it { should have_many(:picks) }
   end
 end

@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20160215203933) do
   add_index "games", ["week_id"], name: "index_games_on_week_id", using: :btree
   add_index "games", ["winning_team_id"], name: "index_games_on_winning_team_id", using: :btree
 
+  create_table "picks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "game_id", null: false
+    t.integer "team_id"
+  end
+
+  add_index "picks", ["game_id"], name: "index_picks_on_game_id", using: :btree
+  add_index "picks", ["team_id"], name: "index_picks_on_team_id", using: :btree
+  add_index "picks", ["user_id"], name: "index_picks_on_user_id", using: :btree
+
   create_table "seasons", force: :cascade do |t|
     t.datetime "start_date", null: false
   end

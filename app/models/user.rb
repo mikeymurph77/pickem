@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :username, presence: true, uniqueness: true, case_sensitive: false
 
+  has_many :picks
+
   def name
     "#{first_name} #{last_name}"
   end
