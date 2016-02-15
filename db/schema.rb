@@ -11,35 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127193752) do
+ActiveRecord::Schema.define(version: 20160120011152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "games", force: :cascade do |t|
-    t.datetime "start_time",      null: false
-    t.integer  "week_id",         null: false
-    t.integer  "home_team_id",    null: false
-    t.integer  "away_team_id",    null: false
-    t.integer  "winning_team_id"
-  end
-
-  add_index "games", ["away_team_id"], name: "index_games_on_away_team_id", using: :btree
-  add_index "games", ["home_team_id"], name: "index_games_on_home_team_id", using: :btree
-  add_index "games", ["week_id"], name: "index_games_on_week_id", using: :btree
-  add_index "games", ["winning_team_id"], name: "index_games_on_winning_team_id", using: :btree
-
-  create_table "seasons", force: :cascade do |t|
-    t.datetime "start_date", null: false
-  end
-
-  add_index "seasons", ["start_date"], name: "index_seasons_on_start_date", unique: true, using: :btree
-
   create_table "teams", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "location",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name",     null: false
+    t.string "location", null: false
   end
 
   add_index "teams", ["name"], name: "index_teams_on_name", unique: true, using: :btree
@@ -56,11 +35,5 @@ ActiveRecord::Schema.define(version: 20160127193752) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
-
-  create_table "weeks", force: :cascade do |t|
-    t.datetime "start_date", null: false
-  end
-
-  add_index "weeks", ["start_date"], name: "index_weeks_on_start_date", unique: true, using: :btree
 
 end
