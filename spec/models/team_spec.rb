@@ -12,6 +12,7 @@ describe Team do
   describe 'Associations'  do
     it { should have_many(:home_teams) }
     it { should have_many(:away_teams) }
+    it { should have_many(:picks) }
   end
 
   describe "Unit" do

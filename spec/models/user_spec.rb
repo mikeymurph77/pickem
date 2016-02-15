@@ -16,6 +16,10 @@ describe User do
     end
   end
 
+  describe 'Associations' do
+    it { should have_many(:picks) }
+  end
+
   it "returns a user's full name as a string" do
     user = User.new(
       first_name: "Bob",
