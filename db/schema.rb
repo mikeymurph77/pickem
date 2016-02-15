@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20160215203933) do
   add_index "seasons", ["start_date"], name: "index_seasons_on_start_date", unique: true, using: :btree
 
   create_table "teams", force: :cascade do |t|
-    t.string "name",     null: false
-    t.string "location", null: false
+    t.string   "name",       null: false
+    t.string   "location",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "teams", ["name"], name: "index_teams_on_name", unique: true, using: :btree
