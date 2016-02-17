@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Create Seasons
-Season.create(start_date: '2016-02-12 20:58:01 -0500')
+Season.create(start_date: Time.new(2016, 2, 17))
 
 # Create Teams
 teams = Team.create([
