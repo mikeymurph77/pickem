@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  validates :week_id, presence: true
+  validates :week, presence: true
   validates :home_team, presence: true
   validates :away_team, presence: true
   validates :start_time, presence: true
